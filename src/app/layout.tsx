@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Kapil Singh Rajput - Frontend Developer',
-  description: 'Portfolio of Kapil Singh Rajput - Frontend Developer specializing in React and Next.js',
+  title: 'AngelOne - Investment Platform',
+  
 };
 
 export default function RootLayout({

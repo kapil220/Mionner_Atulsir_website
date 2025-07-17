@@ -6,6 +6,7 @@
 # Ignore dependencies
 node_modules/
 vendor/
+.next
 
 # Ignore environment files
 .env

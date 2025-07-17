@@ -1,198 +1,58 @@
-'use client';
+import React from 'react';
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+const HeroSection = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <main className="max-w-8xl mx-auto ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          {/* Left Content - Centered */}
+          <div className="flex flex-col justify-center space-y-6 px-4 pl-28">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              Welcome to Effortless Investing — Open Your Free Demat Account in Just 4 Easy Steps!
+            </h1>
+            
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Say goodbye to paperwork and confusion. Our seamless process makes opening your Demat account simple and fast — ideal for beginners and busy investors alike.
+            </p>
 
-export default function Hero() {
-  // Interactive particle effect state
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+            <div className="">
+  <a 
+    href="https://www.angelone.in/signup/register?rne_source=B2B_NXT&btype=VkFQ&referrer=AFDT%3A%3Arne_source%3DB2B_NXT%3A%3Abtype%3DVkFQ&source_caller=api&pid=NXT&SbTag=QUZEVA%3D%3D&deep_link_value=referrer%3DAFDT%3A%3Arne_source%3DB2B_NXT%3A%3Abtype%3DVkFQ&c=nxt_campaign" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-sm inline-block"
+  >
+    Open Free Demat Account
+  </a>
+</div>
 
-  // Text animation variants
-  const letterAnimation = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { 
-        delay: i * 0.03,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    })
-  };
+            <p className="text-gray-600">
+              Start your investment journey today with confidence and ease!
+            </p>
+          </div>
 
-  // Create staggered text animation
-  const StaggeredText = ({ text, className }: { text: string, className: string }) => (
-    <div className={className}>
-      {text.split('').map((char, index) => (
-        <motion.span
-          key={index}
-          custom={index}
-          variants={letterAnimation}
-          initial="hidden"
-          animate="visible"
-          className="inline-block"
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </motion.span>
-      ))}
+          {/* Right Content - Trading Interface with Background Colors covering entire right half */}
+          <div className="relative flex items-center justify-center min-h-screen overflow-hidden">
+            {/* Background Color Shapes - Covering entire right half */}
+            <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-green-400 rounded-full opacity-70"></div>
+            <div className="absolute top-10 right-10 w-[400px] h-[400px] bg-blue-500 rounded-full opacity-60"></div>
+            <div className="absolute -bottom-40 -left-40 w-[450px] h-[450px] bg-purple-500 rounded-full opacity-65"></div>
+            <div className="absolute bottom-0 -right-20 w-[350px] h-[350px] bg-yellow-400 rounded-full opacity-75"></div>
+
+            {/* Main Trading Interface Image */}
+            <div className="relative z-10">
+              <img 
+                src="/1.webp" 
+                alt="Trading Platform Interface" 
+                className="rounded-2xl shadow-2xl border border-gray-200 w-full max-w-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
+};
 
-  return (
-    <section className="relative min-h-screen flex items-center bg-black text-white overflow-hidden pt-16 md:pt-0">
-      {/* Abstract background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.div 
-          className="absolute w-96 h-96 rounded-full bg-purple-600 blur-3xl"
-          animate={{
-            x: [0, 10, 0],
-            y: [0, 15, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-          style={{ top: '10%', left: '10%' }}
-        />
-        <motion.div 
-          className="absolute w-80 h-80 rounded-full bg-blue-600 blur-3xl"
-          animate={{
-            x: [0, -15, 0],
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-          style={{ bottom: '15%', right: '15%' }}
-        />
-      </div>
-
-      {/* Interactive cursor follower */}
-      <motion.div 
-        className="hidden lg:block absolute w-32 h-32 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 mix-blend-screen blur-xl pointer-events-none"
-        animate={{
-          x: mousePosition.x - 64,
-          y: mousePosition.y - 64,
-          scale: isHovering ? 1.5 : 1
-        }}
-        transition={{ type: "spring", damping: 15 }}
-      />
-
-      <div className="max-w-6xl mx-auto px-6 z-10 w-full">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.p 
-            className="text-accent text-sm sm:text-lg tracking-widest mb-2 sm:mb-4 font-mono"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Hi, my name is
-          </motion.p>
-
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-6 overflow-hidden">
-            <motion.span 
-              className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 inline-block"
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Kapil Singh Rajput.
-            </motion.span>
-          </h1>
-
-          <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-gray-300 mb-4 sm:mb-6 overflow-hidden">
-            <StaggeredText 
-              text="I craft immersive web experiences."
-              className="bg-gradient-to-r from-gray-100 to-gray-400 text-transparent bg-clip-text"
-            />
-          </h2>
-
-          <motion.p
-            className="max-w-2xl text-gray-400 text-base sm:text-lg mb-8 sm:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            A passionate frontend developer, blending creativity and technology to deliver stunning digital experiences. 
-            Currently, I&#39;m focused on building accessible, high-performance, and visually captivating web applications.
-          </motion.p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <motion.a
-              href="#projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
-            >
-              Check Out My Work
-            </motion.a>
-            
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold border-2 border-purple-500 text-white rounded-xl hover:bg-purple-500/10 transition-all duration-300 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-            >
-              Get In Touch
-            </motion.a>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Code matrix effect easter egg */}
-      <motion.div 
-        className="absolute bottom-12 right-12 text-xs font-mono opacity-30 select-none hidden lg:block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 2 }}
-      >
-        {Array.from({ length: 4 }).map((_, rowIndex) => (
-          <div key={rowIndex} className="flex">
-            {Array.from({ length: 20 }).map((_, colIndex) => (
-              <motion.span 
-                key={colIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: Math.random() }}
-                transition={{ 
-                  repeat: Infinity, 
-                  repeatType: "reverse", 
-                  duration: 2 * Math.random() + 1 
-                }}
-              >
-                {Math.random() > 0.5 ? '1' : '0'}
-              </motion.span>
-            ))}
-          </div>
-        ))}
-      </motion.div>
-    </section>
-  );
-}
+export default HeroSection;
