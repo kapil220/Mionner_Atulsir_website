@@ -3,88 +3,84 @@ import React from 'react';
 const FindDetails = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-
-
       {/* Main Content */}
-      <main className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col lg:flex-row gap-8 items-center">
           {/* Left Content - Image Container */}
-          <div className="relative w-full h-96  rounded-lg flex items-center justify-center">
-            {/* Placeholder for your image */}
-            <div className=" text-center px-12">
+          <div className="w-full lg:w-1/2 order-1 lg:order-1">
+            <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
               <img 
                 src="/3.webp" 
-                alt="Find Details Placeholder" 
-                className="w-full h-full object-cover rounded-lg"
+                alt="Investment dashboard" 
+                className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
 
           {/* Right Content - Seamless Investing */}
-          <div>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">Seamless Investing</h1>
+          <div className="w-full lg:w-1/2 order-2 lg:order-2">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              Seamless Investing
+            </h1>
             
-            <p className="text-gray-600 text-lg mb-8  leading-relaxed">
-              Experience seamless investing with Angel One. Access the industry's best tools and expert insights to achieve your financial goals.
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              Experience seamless investing with Angel One. Access the industry&apos;s best tools and expert insights to achieve your financial goals.
             </p>
             
             <div className="space-y-4">
-              <div className=" rounded-xl p-6 border-l-4 border-blue-500 hover:border-blue-700 bg-slate-200 hover:bg-slate-300 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Zero Commission on Mutual Fund Investments/SIPs</h3>
-                <p className="text-gray-600">
-                  Enjoy the compounding returns of mutual funds and SIPs, at no additional costs.
-                </p>
-              </div>
-
-              <div className=" rounded-xl p-6 border-l-4 border-blue-500 hover:border-blue-700 bg-slate-200 hover:bg-slate-300 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Portfolio Advisory</h3>
-                <p className="text-gray-600">
-                  Access ready-to-invest, well-researched portfolios built by experts, empowering you to make informed investment decisions.
-                </p>
-              </div>
-
-              <div className=" rounded-xl p-6 border-l-4 border-blue-500 hover:border-blue-700 bg-slate-200 hover:bg-slate-300 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">24/7 Order Placement</h3>
-                <p className="text-gray-600">
-                  Place buy/sell orders for stocks, bonds, and other assets at any time, round the clock, so you never miss an opportunity in the fast-paced world of finance.
-                </p>
-              </div>
+              {[
+                {
+                  title: "Zero Commission on Mutual Fund Investments/SIPs",
+                  description: "Enjoy the compounding returns of mutual funds and SIPs, at no additional costs."
+                },
+                {
+                  title: "Portfolio Advisory",
+                  description: "Access ready-to-invest, well-researched portfolios built by experts."
+                },
+                {
+                  title: "24/7 Order Placement",
+                  description: "Place buy/sell orders anytime so you never miss an opportunity."
+                }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className="p-6 border-l-4 border-blue-500 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+                >
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </main>
 
       {/* CTA Section */}
- <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gray-200"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col items-center text-center">
-          {/* Center Content */}
-          <div className="relative z-10">
-            
-            
-            <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Open your free Demat<br />Account Now!
-            </h2>
-            
-            <p className="text-gray-700 text-lg mb-8 leading-relaxed max-w-2xl">
-              Say goodbye to paperwork and confusion. Our seamless process makes opening simple and fast —
-            </p>
-            
-             <div className="">
-  <a 
-    href="https://www.angelone.in/signup/register?rne_source=B2B_NXT&btype=VkFQ&referrer=AFDT%3A%3Arne_source%3DB2B_NXT%3A%3Abtype%3DVkFQ&source_caller=api&pid=NXT&SbTag=QUZEVA%3D%3D&deep_link_value=referrer%3DAFDT%3A%3Arne_source%3DB2B_NXT%3A%3Abtype%3DVkFQ&c=nxt_campaign" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-sm inline-block"
-  >
-    Get Started
-  </a>
-</div>
-          </div>
+      <section className="bg-gray-200 py-16 mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            Open your free Demat Account Now!
+          </h2>
+          
+          <p className="text-gray-700 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+            Say goodbye to paperwork and confusion. Our seamless process makes opening simple and fast.
+          </p>
+          
+          <a 
+            href="https://www.angelone.in/signup/register" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors duration-200"
+          >
+            Get Started
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };
