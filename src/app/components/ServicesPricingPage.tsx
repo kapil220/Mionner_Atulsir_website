@@ -110,18 +110,7 @@ const ServicesPricingPage = () => {
         </section>
 
         {/* Mobile App Preview - Only visible on mobile */}
-        <div className="fixed bottom-4 right-4 w-14 h-20 sm:w-16 sm:h-24 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden sm:hidden">
-          <div className="p-1 sm:p-2">
-            <div className="bg-gray-100 rounded mb-1">
-              <div className="text-2xs sm:text-xs font-medium text-center py-0.5 sm:py-1">AngelOne</div>
-            </div>
-            <div className="space-y-1">
-              <div className="h-1 bg-blue-500 rounded"></div>
-              <div className="h-1 bg-green-500 rounded w-3/4"></div>
-              <div className="h-1 bg-red-500 rounded w-1/2"></div>
-            </div>
-          </div>
-        </div>
+        
       </main>
     </div>
   );
